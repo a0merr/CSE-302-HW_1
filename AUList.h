@@ -1,5 +1,5 @@
-#ifndef AULIST_H
-#define AULIST_H
+#ifndef AUList_h
+#define AUList_h
 
 #include <stdexcept>
 
