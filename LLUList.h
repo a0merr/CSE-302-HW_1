@@ -17,5 +17,8 @@ public:
     int getMin() const;
     int getRange() const;
     void display() const;
+    // Added missing functions
+    void MakeEmpty();
+    void PutItem(int val);
 };
 #endif
