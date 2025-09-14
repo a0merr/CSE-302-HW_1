@@ -10,6 +10,7 @@ public:
     AUList(int cap = 100);
     AUList(const AUList& other);
     ~AUList();
+
     void insert(int val);
     int getMin() const;
     int getRange() const;
@@ -17,6 +18,7 @@ public:
     // Added missing functions used in your tests
     void MakeEmpty();
     void PutItem(int val);
+
     int getSize() const { return size; }
     int getAt(int index) const;
 };
