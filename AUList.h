@@ -6,20 +6,21 @@ private:
     int* data;
     int size;
     int capacity;
+    int currentPos;  // for iteration
 public:
     AUList(int cap = 100);
     AUList(const AUList& other);
     ~AUList();
-
     void insert(int val);
     int getMin() const;
     int getRange() const;
     AUList DuplicateSE(int first, int last);
-    // Added missing functions used in your tests
     void MakeEmpty();
     void PutItem(int val);
-
-    int getSize() const { return size; }
+    // Iteration support
+    void ResetList();
+    int GetNextItem();
+    int GetLength() const;
     int getAt(int index) const;
 };
 #endif
