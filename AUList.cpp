@@ -4,6 +4,7 @@ AUList::AUList(int cap) {
     capacity = cap;
     size = 0;
     data = new int[capacity];
+    currentPos = 0;
 }
 AUList::AUList(const AUList& other) {
     capacity = other.capacity;
@@ -11,6 +12,7 @@ AUList::AUList(const AUList& other) {
     data = new int[capacity];
     for (int i = 0; i < size; i++)
         data[i] = other.data[i];
+    currentPos = 0;
 }
 AUList::~AUList() {
     delete[] data;
@@ -33,9 +35,9 @@ int AUList::getMin() const {
 int AUList::getRange() const {
     if (size == 0)
         throw std::runtime_error("List is empty!");
-    int minVal = data[0];
-    int maxVal = data[0];
-	for (int i = 1; i < size; i++) {
+		int minVal = data[0];
+    	int maxVal = data[0];
+    for (int i = 1; i < size; i++) {
         if (data[i] < minVal) minVal = data[i];
         if (data[i] > maxVal) maxVal = data[i];
     }
@@ -54,10 +56,21 @@ int AUList::getAt(int index) const {
         throw std::out_of_range("Index out of bounds");
     return data[index];
 }
-// Added missing functions
 void AUList::MakeEmpty() {
     size = 0;
+    currentPos = 0;
 }
 void AUList::PutItem(int val) {
     insert(val);
+}
+void AUList::ResetList() {
+    currentPos = 0;
+}
+int AUList::GetNextItem() {
+    if (currentPos >= size)
+        throw std::out_of_range("No more items");
+    return data[currentPos++];
+}
+int AUList::GetLength() const {
+    return size;
 }
