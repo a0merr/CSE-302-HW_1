@@ -1,3 +1,9 @@
+#include "LLUList.h"   // Include the header for class and Node declarations
+#include <iostream>    // For cout, endl
+#include <stdexcept>   // For runtime_error
+using namespace std;   // So you can use cout, endl, runtime_error without std::
+LLUList::LLUList() : head(nullptr) {}
+LLUList::~LLUList() {
     MakeEmpty();
 }
 void LLUList::MakeEmpty() {
@@ -62,3 +68,4 @@ void LLUList::display() const {
     }
     cout << " }" << endl;
 }
+
