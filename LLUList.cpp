@@ -1,15 +1,16 @@
-#include "LLUList.h"
-#include <iostream>
-#include <stdexcept>
-using namespace std;
-LLUList::LLUList() : head(nullptr) {}
-LLUList::~LLUList() {
+    MakeEmpty();
+}
+void LLUList::MakeEmpty() {
     Node* current = head;
     while (current) {
         Node* temp = current;
         current = current->next;
         delete temp;
     }
+    head = nullptr;
+}
+void LLUList::PutItem(int val) {
+    insert(val);
 }
 void LLUList::insert(int value) {
     Node* newNode = new Node(value);
@@ -37,7 +38,7 @@ int LLUList::getMin() const {
     return minVal;
 }
 int LLUList::getRange() const {
-     if (!head) {
+    if (!head) {
         throw runtime_error("LLUList is empty!");
     }
     int minVal = head->data;
